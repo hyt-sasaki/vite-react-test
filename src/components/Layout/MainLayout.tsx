@@ -13,15 +13,23 @@ const sideNaviStyle = css({
   backgroundColor: "#555",
   padding: "1rem",
 });
+
+const navStyle = css({
+  color: "#eee",
+  "&:hover": {
+    color: "#aaa",
+  },
+});
 function SideNavigation() {
-  const navigation = [{ name: "Dashboard", to: "." }].filter(
-    Boolean
-  ) as SideNavigationItem[];
+  const navigation = [
+    { name: "sample", to: "." },
+    { name: "time", to: "time" },
+  ].filter(Boolean) as SideNavigationItem[];
 
   return (
     <div css={sideNaviStyle}>
       {navigation.map((item, index) => (
-        <NavLink end={index === 0} key={item.name} to={item.to}>
+        <NavLink css={navStyle} end={index === 0} key={item.name} to={item.to}>
           {item.name}
         </NavLink>
       ))}
@@ -32,6 +40,7 @@ function SideNavigation() {
 const mainLayoutStyle = css({
   display: "flex",
   flexDirection: "row",
+  height: "100vh",
 });
 type MainLayoutProps = {
   children: React.ReactNode;
