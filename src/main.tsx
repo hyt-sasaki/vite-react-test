@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Sample } from "@/features/sample";
 import { Global, css } from "@emotion/react";
+import { App } from "@/App";
 
 const globalStyle = css({
   ":root": {
@@ -10,15 +10,14 @@ const globalStyle = css({
     lineHeight: "24px",
     fontWeight: 400,
     colorScheme: "light dark",
-    color: "rgba(255, 255, 255, 0.87)",
-    backgroundColor: "#242424",
+    color: "rgba(55, 55, 55, 0.87)",
+    backgroundColor: "#f4f4f4",
     fontSynthesis: "none",
     textRendering: "optimizeLegibility",
   },
   "#root": {
-    margin: "0 auto",
+    margin: 0,
     maxWidth: "1280px",
-    padding: "2rem",
     textAlign: "center",
   },
   a: {
@@ -67,6 +66,6 @@ const globalStyle = css({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Global styles={globalStyle} />
-    <Sample />
+    <App />
   </React.StrictMode>
 );
