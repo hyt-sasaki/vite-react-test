@@ -7,6 +7,7 @@
     "extends": [
         "airbnb",
         "airbnb-typescript",
+        "plugin:import/typescript",
         "prettier"
     ],
     "overrides": [
@@ -20,11 +21,14 @@
     "rules": {
         // https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md
         "import/prefer-default-export": "off",
-        "no-restricted-imports": ["error", { "patterns": ["@/features/*/*"] }],
+        "no-restricted-imports": ["error", { "patterns": ["@/features/*/*", "src/features/*/*"] }],
+        "import/no-internal-modules": ["error", {
+            "forbid": ["features/*/**"]
+        }],
         // https://emotion.sh/docs/eslint-plugin-react
         "react/no-unknown-property": ["error", { "ignore": ["css"] }]
     },
-    "plugins": ["@emotion"],
+    "plugins": ["@emotion", "import"],
     "settings": {
         // tsconfig.jsonでpathsを使うために導入した eslint-plugin-importの設定
         "import/resolver": {
