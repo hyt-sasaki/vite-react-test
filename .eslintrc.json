@@ -21,14 +21,19 @@
     "rules": {
         // https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md
         "import/prefer-default-export": "off",
-        "no-restricted-imports": ["error", { "patterns": ["@/features/*/*", "src/features/*/*"] }],
-        "import/no-internal-modules": ["error", {
-            "forbid": ["features/*/**"]
-        }],
+        // "no-restricted-imports": ["error", { "patterns": ["@/features/*/*", "src/features/*/*"] }],
         // https://emotion.sh/docs/eslint-plugin-react
-        "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+        "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+        "import/no-extraneous-dependencies": ["error", {
+            "devDependencies": ["src/mocks/**"]
+        }],
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": [
+            2,
+            { "namedComponents": "arrow-function" }
+        ]
     },
-    "plugins": ["@emotion", "import"],
+    "plugins": ["@emotion"],
     "settings": {
         // tsconfig.jsonでpathsを使うために導入した eslint-plugin-importの設定
         "import/resolver": {

@@ -20,10 +20,11 @@ const navStyle = css({
     color: "#aaa",
   },
 });
-function SideNavigation() {
+const SideNavigation = () => {
   const navigation = [
     { name: "sample", to: "." },
     { name: "time", to: "time" },
+    { name: "sample3", to: "sample3" },
   ].filter(Boolean) as SideNavigationItem[];
 
   return (
@@ -35,7 +36,7 @@ function SideNavigation() {
       ))}
     </div>
   );
-}
+};
 
 const mainLayoutStyle = css({
   display: "flex",
@@ -45,11 +46,9 @@ const mainLayoutStyle = css({
 type MainLayoutProps = {
   children: React.ReactNode;
 };
-export function MainLayout({ children }: MainLayoutProps) {
-  return (
-    <div css={mainLayoutStyle}>
-      <SideNavigation />
-      <main>{children}</main>
-    </div>
-  );
-}
+export const MainLayout = ({ children }: MainLayoutProps) => (
+  <div css={mainLayoutStyle}>
+    <SideNavigation />
+    <main>{children}</main>
+  </div>
+);

@@ -10,7 +10,7 @@ const rootCss = css({
 const cardCss = css({
   padding: "2em",
 });
-export function Time() {
+export const Time = () => {
   const { readableTime } = useTime(1000);
 
   return (
@@ -19,4 +19,4 @@ export function Time() {
       <div css={cardCss}>{readableTime}</div>
     </div>
   );
-}
+};

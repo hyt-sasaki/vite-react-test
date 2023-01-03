@@ -22,6 +22,10 @@ const globalStyle = css({
   },
 });
 
+if (import.meta.env.MODE === "development") {
+  import("./mocks/browser").then(({ worker }) => worker.start());
+}
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Global styles={globalStyle} />

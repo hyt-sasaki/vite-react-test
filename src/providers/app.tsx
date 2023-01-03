@@ -1,13 +1,23 @@
 import * as React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "@/lib/react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
+const FallBack = () => {
+  // eslint-disable-next-line no-console
+  console.log("Fall back!!!");
+  return <div>Spinner</div>;
+};
 
 type AppProviderProps = {
   children: React.ReactNode;
 };
-export function AppProvider({ children }: AppProviderProps) {
-  return (
-    <React.Suspense fallback={<div>Spinner</div>}>
+export const AppProvider = ({ children }: AppProviderProps) => (
+  <React.Suspense fallback={FallBack()}>
+    <QueryClientProvider client={queryClient}>
+      {import.meta.env.MODE === "development" && <ReactQueryDevtools />}
       <BrowserRouter>{children}</BrowserRouter>
-    </React.Suspense>
-  );
-}
+    </QueryClientProvider>
+  </React.Suspense>
+);
