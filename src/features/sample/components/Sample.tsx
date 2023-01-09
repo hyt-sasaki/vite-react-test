@@ -10,7 +10,7 @@ const cardCss = css({
   padding: "2em",
 });
 
-export function Sample() {
+export const Sample = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -26,4 +26,4 @@ export function Sample() {
       </div>
     </div>
   );
-}
+};

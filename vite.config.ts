@@ -10,4 +10,8 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  server: {
+    open: true,
+    cors: false,
+  },
 });
