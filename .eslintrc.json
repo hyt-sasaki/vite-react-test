@@ -21,11 +21,11 @@
     "rules": {
         // https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md
         "import/prefer-default-export": "off",
-        // "no-restricted-imports": ["error", { "patterns": ["@/features/*/*", "src/features/*/*"] }],
+        "no-restricted-imports": ["error", { "patterns": ["@/features/*/*", "src/features/*/*"] }],
         // https://emotion.sh/docs/eslint-plugin-react
         "react/no-unknown-property": ["error", { "ignore": ["css"] }],
         "import/no-extraneous-dependencies": ["error", {
-            "devDependencies": ["src/mocks/**"]
+            "devDependencies": ["src/mocks/**", "src/**/*.stories.ts*"]
         }],
         "react/react-in-jsx-scope": "off",
         "react/function-component-definition": [

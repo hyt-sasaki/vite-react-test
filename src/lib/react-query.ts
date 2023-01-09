@@ -5,7 +5,7 @@ import {
   UseQueryOptions,
 } from "react-query";
 
-const queryConfig: DefaultOptions = {
+export const queryConfig: DefaultOptions = {
   queries: {
     useErrorBoundary: true,
     refetchOnWindowFocus: false,

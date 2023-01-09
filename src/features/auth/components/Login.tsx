@@ -12,12 +12,12 @@ export const LoginTemplate = ({ onSubmit }: LoginTemplateProps) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">
-          Name:
+          名前:
           <input id="name" {...register("name", { required: true })} />
         </label>
 
         <label htmlFor="mail">
-          Mail:
+          メール:
           <input id="mail" {...register("mail", { required: true })} />
         </label>
         <input type="submit" />
