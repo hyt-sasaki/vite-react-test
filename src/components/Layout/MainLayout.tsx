@@ -22,7 +22,8 @@ const navStyle = css({
 });
 const SideNavigation = () => {
   const navigation = [
-    { name: "sample", to: "." },
+    { name: "login", to: "." },
+    { name: "sample", to: "sample" },
     { name: "time", to: "time" },
     { name: "sample3", to: "sample3" },
   ].filter(Boolean) as SideNavigationItem[];

@@ -5,3 +5,5 @@ const config = new Configuration({
   basePath: BASE_PATH,
 });
 export const apiClient = new DefaultApi(config);
+
+export type ErrorResponse = Response | Error;

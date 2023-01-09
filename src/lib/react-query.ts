@@ -1,4 +1,9 @@
-import { DefaultOptions, QueryClient, UseQueryOptions } from "react-query";
+import {
+  DefaultOptions,
+  QueryClient,
+  UseMutationOptions,
+  UseQueryOptions,
+} from "react-query";
 
 const queryConfig: DefaultOptions = {
   queries: {
@@ -9,14 +14,22 @@ const queryConfig: DefaultOptions = {
 
 export const queryClient = new QueryClient({ defaultOptions: queryConfig });
 
-export type ExtractFnReturnType<FnType extends (...args: any) => any> = Awaited<
-  Promise<ReturnType<FnType>>
+type FnType = (...args: any) => any;
+
+export type ExtractFnReturnType<FT extends FnType> = Awaited<
+  Promise<ReturnType<FT>>
 >;
 
-export type QueryConfig<
-  QueryFnType extends (...args: any) => any,
-  TError
-> = Omit<
+export type QueryConfig<QueryFnType extends FnType, TError> = Omit<
   UseQueryOptions<ExtractFnReturnType<QueryFnType>, TError>,
   "queryKey" | "queryFn"
+>;
+
+export type MutationConfig<
+  MutationFnType extends FnType,
+  TError
+> = UseMutationOptions<
+  ExtractFnReturnType<MutationFnType>,
+  TError,
+  Parameters<MutationFnType>[0]
 >;

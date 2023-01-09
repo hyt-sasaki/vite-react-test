@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@hyt-sasaki/fetch_client_test": "^0.0.0-SNAPSHOT.202301031631",
+    "@hyt-sasaki/fetch_client_test": "^0.0.0-SNAPSHOT.202301091814",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5",
     "react-query": "^3.39.2",
     "react-router-dom": "^6.6.1"
   },
